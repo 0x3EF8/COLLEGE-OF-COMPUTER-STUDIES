@@ -1,0 +1,243 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 10px;
+            text-decoration: none;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* background-color: #b61924; */
+            background-image: url('../img/bg/body_01.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-decoration: none;
+            background-position: 50% 50%;
+        }
+        /* Navbar Start */
+        
+        a {
+            text-decoration: none;
+            color: #eee;
+        }
+        
+        header {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 120rem;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .menu-toggle {
+            position: fixed;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-family: 'Montserrat';
+            color: #eeeeee;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+        }
+        
+        nav {
+            padding-top: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 1.6rem;
+        }
+        
+        .logo {
+            font-size: 5rem;
+            transform: translateX(-100rem);
+            animation: slideIn .5s forwards;
+        }
+        
+        .logo a {
+            color: #FFA500;
+            font-weight: bold;
+            font-family: 'Spartan';
+            font-size: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav ul li {
+            list-style: none;
+            transform: translateX(100rem);
+            animation: slideIn .5s forwards;
+        }
+        
+        nav ul li:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        nav ul li:nth-child(2) {
+            animation-delay: .5s;
+        }
+        
+        nav ul li:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        nav ul li:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        
+        nav ul li a {
+            padding: 1rem 0;
+            margin: 0 3rem;
+            font-family: 'Montserrat';
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        nav ul li a:last-child {
+            margin-right: 0;
+        }
+        
+        nav ul li a::before,
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #FFA500;
+            left: 0;
+            transform: scaleX(0);
+            transition: all .5s;
+        }
+        
+        nav ul li a::before {
+            top: 0;
+            transform-origin: left;
+        }
+        
+        nav ul li a::after {
+            bottom: 0;
+            transform-origin: right;
+        }
+        
+        .overlay {
+            background-color: rgba(0, 0, 5, .95);
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            transition: opacity 650ms;
+            transform: scale(0);
+            opacity: 0;
+            display: none;
+        }
+        
+        nav ul li a:hover::before,
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        @keyframes slideIn {
+            from {}
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        @media screen and (max-width: 700px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                padding-top: 0;
+                display: none;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin-top: 5rem;
+            }
+            nav ul li a {
+                margin: 0;
+                font-size: 2.5rem;
+            }
+            .overlay.menu-open,
+            nav.menu-open {
+                display: flex;
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        /*End NavBar*/
+        /* content */
+        
+        .content .css {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .css h1 {
+            color: #FFA500;
+            font-family: 'Spartan';
+            font-size: 4rem;
+        }
+        
+        .content p {
+            color: #fff;
+            font-family: 'Montserrat';
+            font-size: 20px;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 700px) {
+            .content .css {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .content .css div:first-child {
+                order: 2;
+            }
+            .content .css div:nth-child(2) {
+                order: -1;
+            }
+        }
+        
+        .content img {
+            width: 100%;
+            float: right;
+            margin: auto;
+        }
+        
+        .css {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+        /* End content */
+        /* Why CSS  */

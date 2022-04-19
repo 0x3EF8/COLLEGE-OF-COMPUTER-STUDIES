@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css?family=Jura:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=K2D:400,500,600");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    text-decoration: none;
+}
+
+body {
+    background-color: #01010e;
+    font-family: "K2D", sans-serif;
+}
+
+
+/* Navbar Start */
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+.container {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-family: 'Montserrat';
+    color: #eeeeee;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+}
+
+nav {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.logo {
+    font-size: 5rem;
+    transform: translateX(-100rem);
+    animation: slideIn .5s forwards;
+}
+
+.logo a {
+    color: #FFA500;
+    font-weight: bold;
+    font-family: 'Spartan';
+    font-size: 60px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn .5s forwards;
+}
+
+nav ul li:nth-child(1) {
+    animation-delay: 0s;
+}
+
+nav ul li:nth-child(2) {
+    animation-delay: .5s;
+}
+
+nav ul li:nth-child(3) {
+    animation-delay: 1s;
+}
+
+nav ul li:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+nav ul li a {
+    padding: 1rem 0;
+    margin: 0 3rem;
+    font-family: 'Montserrat';
+    position: relative;
+    letter-spacing: 2px;
+}
+
+nav ul li a:last-child {
+    margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #FFA500;
+    left: 0;
+    transform: scaleX(0);
+    transition: all .5s;
+}
+
+nav ul li a::before {
+    top: 0;
+    transform-origin: left;
+}
+
+nav ul li a::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 5, .95);
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: opacity 650ms;
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+@keyframes slideIn {
+    from {}
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav {
+        padding-top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin-top: 5rem;
+    }
+    nav ul li a {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+    .overlay.menu-open,
+    nav.menu-open {
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/*End NavBar*/
+
+.timeline {
+    width: 100%;
+    margin: auto;
+    max-width: 760px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.timeline:before {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 3px;
+    background-color: #24B1DE;
+    transition: 0.6s 1.5s;
+    content: "";
+}
+
+.timeline-overlay {
+    width: 100%;
+    background-color: #2d2d2d;
+    height: 0;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    left: 0;
+}
+
+.timeline-headline {
+    color: #24B1DE;
+    position: absolute;
+    display: flex;
+    letter-spacing: 0.4px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    top: 150%;
+    font-size: calc(.2vw + 10px);
+    padding: 20px 0 0 0;
+}
+
+.timeline-content {
+    display: none;
+    position: relative;
+    color: #929292;
+    padding: 4% 10%;
+    font-size: calc(12px + .4vw);
+    width: 100%;
+    margin: auto;
+    line-height: 1.5;
+    background-color: #2d2d2d;
+}
+
+.timeline-content img {
+    width: 100%;
+    height: 100;
+}
+
+.timeline-title {
+    font-family: "Jura", serif;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #24B1DE;
+    white-space: nowrap;
+}
+
+.timeline-excerpt {
+    font-size: 1.1em;
+    padding: 0 10px;
+    line-height: 1.4;
+    font-weight: normal;
+    margin-top: 8px;
+    font-family: "K2D";
+    color: #929292;
+}
+
+.timeline-item {
+    height: 30vh;
+    width: 45%;
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline-item:nth-child(even) {
+    align-self: flex-end;
+}
+
+.timeline-photo {
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-cta {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    border: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    background: none;
+    font-family: "K2D", sans-serif;
+    padding: 6px 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0;
+    color: #24B1DE;
+    background-color: rgba(58, 58, 58, 0.6);
+    border-radius: 4px;
+}
+
+.timeline-photo img {
+    overflow: hidden;
+    -o-object-fit: fill;
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-subtitle {
+    margin: 0 0 6px 0;
+    font-family: "Jura", sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.timeline-back {
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+    padding: 5px 10px;
+    border: 1px solid #24B1DE;
+    background-color: rgba(58, 58, 58, 0.4);
+    border-radius: 4px;
+    outline: none;
+    display: flex;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.timeline-back.is-active {
+    opacity: 1;
+    top: 26px;
+    visibility: visible;
+    transition-delay: 2.4s;
+}
+
+.timeline-back:hover {
+    background-color: rgba(58, 58, 58, 0.8);
+}
+
+.timeline-back>svg {
+    width: 28px;
+    stroke: #24B1DE;
+}
+
+.timeline.is-expanded .timeline-item:not(.is-active) {
+    pointer-events: none;
+}
+
+.timeline.is-expanded:before {
+    transition-delay: 0s;
+    opacity: 0;
+}
+
+.timeline:not(.is-expanded) .timeline-item:not(.is-active) {
+    cursor: pointer;
+}
